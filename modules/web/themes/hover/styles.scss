@@ -1,0 +1,16 @@
+@import "hover-defaults";
+@import "kz.uco.testwork/hover-ext-defaults";
+@import "app-components";
+@import "kz.uco.testwork/hover-ext";
+
+.hover {
+  // include auto-generated app components SCSS
+  @include app_components;
+
+  @include kz_uco_testwork-hover-ext;
+}
+
+
+.v-slot-c-panel-groupbox{
+  width: 100px;
+}

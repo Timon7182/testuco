@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://accountEdit.caption"
+        focusComponent="form"
+        messagesPack="kz.uco.testwork.web.screens.account">
+    <data>
+        <instance id="accountDc"
+                  class="kz.uco.testwork.entity.Account">
+            <view extends="_local">
+                <property name="photo" fetch="AUTO" view="_local"/>
+                <property name="contacts"  view="_local"/>
+
+            </view>
+            <loader/>
+            <collection id="contactDs" property="contacts"/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions"  spacing="true">
+
+
+        <hbox width="100%" spacing="true">
+
+                <groupBox spacing="true" width="100%" >
+                    <image id="image" dataContainer="accountDc" property="photo"
+                           scaleMode="FILL"
+                           width="360px" height="auto"
+                           align="MIDDLE_CENTER"/>
+                    <upload fileStoragePutMode="IMMEDIATE" showFileName="false"
+                            dataContainer="accountDc" property="photo" showClearButton="true"/>
+
+
+                </groupBox>
+
+                <form id="form" responsive="true" width="AUTO" dataContainer="accountDc" align="TOP_CENTER">
+                    <column width="360px">
+                        <textField id="nameField" property="name" caption="First Name"/>
+                        <textField id="last_nameField" property="last_name"/>
+                        <textField id="middle_nameField" property="middle_name"/>
+                    </column>
+                </form>
+            <groupBox id="contactsBox" caption="contacts" width="AUTO" >
+                <table id="contactsTable" dataContainer="contactDs" height="100%" width="100%">
+                    <buttonsPanel>
+                        <button action="contactsTable.create"/>
+                        <button action="contactsTable.edit"/>
+                        <button action="contactsTable.remove"/>
+                    </buttonsPanel>
+                    <actions>
+                        <action id="create" type="create" openType="DIALOG"/>
+                        <action id="edit" type="edit" openType="DIALOG"/>
+                        <action id="remove" type="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="contact"/>
+                        <column id="value"/>
+                    </columns>
+                </table>
+            </groupBox>
+
+       </hbox>
+        <hbox id="editActions" spacing="true" align="MIDDLE_LEFT">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+
+    </layout>
+</window>

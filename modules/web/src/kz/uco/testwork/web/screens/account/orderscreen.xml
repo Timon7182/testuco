@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://screen.caption"
+        messagesPack="kz.uco.testwork.web.screens.account">
+
+    <data readOnly="true">
+    <collection id="ordersDc"
+                class="kz.uco.testwork.entity.Order" >
+        <loader id="ordersDl">
+
+        </loader>
+        <view extends="_local">
+            <property name="product" view="_local"/>
+
+        </view>
+    </collection>
+        <collection id="productDc" class="kz.uco.testwork.entity.Product">
+            <loader id="productDl">
+                <query> select e from testwork_Product e  where e.order.id = :product
+                </query>
+            </loader>
+            <view extends="_local">
+                <property name="price"/>
+            </view>
+        </collection>
+
+    </data>
+    <layout spacing="true">
+        <hbox id="mainBox" width="100%" height="100%" spacing="true">
+
+        <table id="ordersTable" width="100%" height="100%"
+               dataContainer="ordersDc">
+            <actions>
+
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+
+            <columns>
+                <column id="date"/>
+                <column id="amount"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="ordersTable.create"/>
+                <button id="editBtn" action="ordersTable.edit"/>
+                <button id="removeBtn" action="ordersTable.remove"/>
+            </buttonsPanel>
+        </table>
+        <table id="productTable" width="100%" height="100%"
+               dataContainer="productDc">
+            <columns>
+                <column id="name"/>
+                <column id="quantity"/>
+            </columns>
+            <rows/>
+        </table>
+        </hbox>
+    </layout>
+
+
+</window>

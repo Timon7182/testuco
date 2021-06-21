@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence-unit name="testwork" transaction-type="RESOURCE_LOCAL">
+
+        <class>kz.uco.testwork.entity.Account</class>
+        <class>kz.uco.testwork.entity.Contacts</class>
+        <class>kz.uco.testwork.entity.Product</class>
+        <class>kz.uco.testwork.entity.Order</class>
+    </persistence-unit>
+</persistence>

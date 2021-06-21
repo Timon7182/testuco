@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:gui="http://schemas.haulmont.com/cuba/spring/cuba-gui.xsd">
+
+    <!-- Annotation-based beans -->
+    <context:component-scan base-package="kz.uco.testwork"/>
+    
+    <gui:screens base-packages="kz.uco.testwork.web"/>
+    <bean id="testwork_proxyCreator" class="com.haulmont.cuba.web.sys.remoting.WebRemoteProxyBeanCreator">
+        <property name="serverSelector" ref="cuba_ServerSelector"/>
+        <property name="remoteServices">
+            <map>
+                <entry key="testwork_NameGeneratorService" value="kz.uco.testwork.service.NameGeneratorService"/>
+                <entry key="testwork_CotactCollectService" value="kz.uco.testwork.service.ContactCollectService"/>
+                <entry key="testwork_OrdersService" value="kz.uco.testwork.service.OrdersService"/>
+            </map>
+        </property>
+    </bean>
+    <gui:actions base-packages="kz.uco.testwork.web.actions"/>
+
+
+</beans>

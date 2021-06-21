@@ -1,0 +1,5 @@
+@import "hover-ext";
+
+@mixin kz_uco_testwork {
+  @include kz_uco_testwork-hover-ext;
+}

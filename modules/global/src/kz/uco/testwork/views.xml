@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+    <view entity="testwork_Account" name="account-browseView">
+        <property name="name"/>
+        <property name="last_name"/>
+        <property name="middle_name"/>
+        <property name="photo" fetch="AUTO" view="_local"/>
+        <property name="orders" view="_local"/>
+    </view>
+    <view entity="testwork_Account" name="account-with-order" extends="_local">
+        <property name="orders" view="_minimal">
+            <property name="account" view="_minimal"/>
+        </property>
+    </view>
+    <view entity="testwork_Order" name="order-with-product-and-account" extends="_local">
+        <property name="product" view="_minimal"/>
+        <property name="account" view="_local" fetch="AUTO">
+        </property>
+    </view>
+    <view entity="testwork_Account" name="account-with-contacts" extends="_local">
+        <property name="contacts" view="_minimal">
+            <property name="contact"/>
+            <property name="value"/>
+        </property>
+    </view>
+</views>
