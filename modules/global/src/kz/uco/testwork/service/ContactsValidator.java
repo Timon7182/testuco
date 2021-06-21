@@ -14,7 +14,7 @@ public class ContactsValidator implements ConstraintValidator<CheckContactType, 
 
     }
 
-    String emailRegex = "^[A-Za-z0-9+_.-]+@(.+)$";
+    String emailRegex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$";
     String phoneRegex="^(\\+\\d{1,3}( )?)?((\\(\\d{3}\\))|\\d{3})[- .]?\\d{3}[- .]?\\d{2}[- .]?\\d{2}$";
     Pattern emailPattern = Pattern.compile(emailRegex);
     Pattern phonePattern = Pattern.compile(phoneRegex);
