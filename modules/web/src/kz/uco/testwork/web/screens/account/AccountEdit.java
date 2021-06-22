@@ -41,7 +41,6 @@ public class AccountEdit extends StandardEditor<Account> {
                 .newEntity()
                 .withOpenMode(OpenMode.DIALOG)
                 .withScreenClass(ContactsEdit.class)
-
                 .withAfterCloseListener(afterScreenCloseEvent -> {
                     if (afterScreenCloseEvent.closedWith(StandardOutcome.COMMIT)) {
                         Contacts contacts= (afterScreenCloseEvent.getScreen()).getEditedEntity();

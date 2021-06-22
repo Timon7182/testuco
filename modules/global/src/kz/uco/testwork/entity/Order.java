@@ -1,5 +1,6 @@
 package kz.uco.testwork.entity;
 
+import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.OnDelete;
@@ -27,6 +28,7 @@ public class Order extends StandardEntity {
 
     @OneToMany(mappedBy = "order")
     @OnDelete(DeletePolicy.CASCADE)
+    @Composition
     private List<Product> product;
 
 

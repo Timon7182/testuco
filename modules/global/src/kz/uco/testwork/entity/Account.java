@@ -1,5 +1,6 @@
 package kz.uco.testwork.entity;
 
+import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.FileDescriptor;
 import com.haulmont.cuba.core.entity.StandardEntity;
@@ -22,6 +23,7 @@ public class Account extends StandardEntity {
 
     @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "account")
+    @Composition
     private List<Contacts> contacts;
 
     @OneToMany(mappedBy = "account")
