@@ -41,7 +41,7 @@
                     </column>
                 </form>
             <groupBox id="contactsBox" caption="contacts" width="AUTO" >
-                <table id="contactsTable" dataContainer="contactDs" height="100%" width="100%">
+                <table id="contactsTable" dataContainer="contactDs" height="100%" width="AUTO">
                     <buttonsPanel>
                         <button action="contactsTable.create"/>
                         <button action="contactsTable.edit"/>

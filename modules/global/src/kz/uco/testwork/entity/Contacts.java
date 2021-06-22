@@ -17,7 +17,6 @@ public class Contacts extends StandardEntity {
     private String contact;
 
 
-
     @Column(name = "VALUE_")
     private String value;
 
